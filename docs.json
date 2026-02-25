@@ -28,6 +28,12 @@
         "pages": [
           "node-operators"
         ]
+      },
+      {
+        "group": "Tokenomics",
+        "pages": [
+          "tokenomics-flywheel"
+        ]
       }
     ]
   },
