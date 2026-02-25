@@ -22,6 +22,12 @@
           "the-gpu-mesh",
           "security-encryption"
         ]
+      },
+      {
+        "group": "Node Operators",
+        "pages": [
+          "node-operators"
+        ]
       }
     ]
   },
