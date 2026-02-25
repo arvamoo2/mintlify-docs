@@ -7,13 +7,20 @@
     "light": "#34D399",
     "dark": "#00B8D4"
   },
-  "navigation": {
+"navigation": {
     "groups": [
       {
-        "group": "Introduction",
+        "group": "Overview",
         "pages": [
           "introduction",
           "ai-compute-problem"
+        ]
+      },
+      {
+        "group": "Core Technology",
+        "pages": [
+          "the-gpu-mesh",
+          "security-encryption"
         ]
       }
     ]
