@@ -1,0 +1,29 @@
+---
+title: 'Security & Encryption'
+description: 'Institutional-grade data protection for AI workloads.'
+---
+
+Processing proprietary enterprise data on a decentralized network requires a paradigm shift in security architecture. Vektor guarantees that node operators can process inference without ever having access to the underlying data or the model weights.
+
+### 256-bit End-to-End Encryption
+
+All API requests submitted to the Vektor network are encrypted at rest and in transit using **AES-256-GCM encryption**. 
+* **In Transit:** Data traveling between the client and the routing engine is secured via TLS 1.3.
+* **At Rest:** Temporary memory states on the GPU during processing are cryptographically isolated.
+
+### Trusted Execution Environments (TEEs)
+
+
+Vektor mandates that all Node Operators utilize hardware-level Trusted Execution Environments (such as NVIDIA Confidential Computing). 
+
+A TEE creates a secure, isolated enclave within the GPU. When an inference request is processed:
+1. The encrypted data enters the secure enclave.
+2. It is decrypted *only* inside the enclave.
+3. The neural network processes the data.
+4. The output is re-encrypted before leaving the enclave.
+
+**Result:** The Node Operator, the data center admin, and the Vektor protocol itself cannot physically view, intercept, or copy the data being processed.
+
+### Cryptographic Verification
+
+To prevent malicious nodes from returning falsified or "lazy" inference results to save compute power, Vektor employs **Zero-Knowledge Machine Learning (zkML) proofs**. Nodes must submit a cryptographic proof alongside their inference output, verifying that the computation was executed correctly according to the requested model.
