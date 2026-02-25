@@ -1,0 +1,23 @@
+---
+title: 'The GPU Mesh Network'
+description: 'Architecture of the decentralized inference routing layer.'
+---
+
+The Vektor GPU Mesh is a peer-to-peer network of enterprise-grade compute nodes, specifically optimized for high-throughput AI inference and Large Language Model (LLM) serving.
+
+### Architectural Overview
+
+
+Unlike traditional cloud providers that rely on centralized, geographically isolated server farms, Vektor utilizes a **distributed mesh topology**. This ensures zero single points of failure and dynamic load balancing across global regions.
+
+### The Routing Engine
+
+When an AI developer submits an inference request to the Vektor API, the request is not routed to a static server. Instead, it hits the **Vektor Routing Engine**, an intelligent load balancer that evaluates the global mesh in milliseconds based on:
+
+1. **Proximity:** Routing to the geographically closest available node to minimize latency to `< 50ms`.
+2. **Hardware Matching:** Ensuring the specific model requirements (e.g., memory bandwidth, tensor core utilization) are matched with the optimal hardware (NVIDIA H100 vs. A100).
+3. **Current Load:** Avoiding node saturation by distributing concurrent requests across multiple redundant data centers.
+
+### Zero-Downtime Fallback
+
+In the event of a localized power failure or hardware degradation at a specific data center, the mesh automatically reroutes the inference pipeline to the next optimal node within `12ms`. This guarantees the **99.97% Uptime SLA** promised to enterprise clients.
